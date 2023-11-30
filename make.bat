@@ -1,0 +1,1 @@
+javac -cp .;lib/* -d bin %1.java
