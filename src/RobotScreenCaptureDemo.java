@@ -20,7 +20,7 @@ public class RobotScreenCaptureDemo {
  
          // Allocate a Robot instance, and do a screen capture
          Robot robot = new Robot();
-         Rectangle rect = new Rectangle(0, 0, scr.width, scr.height);
+         java.awt.Rectangle rect = new Rectangle(0, 0, scr.width, scr.height);
          BufferedImage image = robot.createScreenCapture(rect);
  
          // Save the captured image to file with ImageIO (JDK 1.4)
