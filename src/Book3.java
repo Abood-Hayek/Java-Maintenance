@@ -65,38 +65,29 @@ public class Book3 {
    }
 
    public void addAuthor(Author author)
+{
+   for (int i = 0; i < authors.length; i++)
    {
-      for (int i = 0; i < authors.length; i++)
-      {
-         if (authors[i] != null) {
-            continue;
-         }
-
+      if (authors[i] == null) {
          authors[i] = author;
          ++numAuthors;
          break;
       }
    }
-
-   public boolean removeAuthorByName(String authorName)
-   {
-      for (int i = 0; i < authors.length; i++)
-      {
-         if (authors[i] == null) {
-            continue;
-         }
-         
-         if (! authorName.equalsIgnoreCase(authors[i].getName().toUpperCase()) ) {
-   continue;
 }
 
+   public boolean removeAuthorByName(String authorName)
+{
+   for (int i = 0; i < authors.length; i++)
+   {
+      if (authors[i] != null && authorName.equalsIgnoreCase(authors[i].getName()) ) {
          authors[i] = null;
          --numAuthors;
          return true;
       }
-      
-      return false;
    }
+   return false;
+}
 
    public String toString() {
       return "'" + name +"' by " + numAuthors + " authors";
