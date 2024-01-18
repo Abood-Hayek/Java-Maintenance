@@ -86,9 +86,9 @@ public class Book3 {
             continue;
          }
          
-         if (! authorName.toUpperCase().equals(authors[i].getName().toUpperCase()) ) {
-            continue;
-         }
+         if (! authorName.equalsIgnoreCase(authors[i].getName().toUpperCase()) ) {
+   continue;
+}
 
          authors[i] = null;
          --numAuthors;
