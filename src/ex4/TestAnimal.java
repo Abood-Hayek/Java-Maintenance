@@ -22,17 +22,29 @@ public class TestAnimal {
         // Animal animal4 = new Animal();   // Error!!! Animal is abstract; cannot be instantiated !
 
         // Downcast
-        Dog dog2 = (Dog)animal2;
-        BigDog bigDog2 = (BigDog)animal3;
-        Dog dog3 = (Dog)animal3;
-        // Cat cat2 = (Cat)animal2;        // Error!!! Dog cannot be cast to Cat !
-
-        dog2.greeting(dog3);
-        dog3.greeting(dog2);
-        dog2.greeting(bigDog2);
-        bigDog2.greeting(dog2);
-        bigDog2.greeting(bigDog1);
-
-        bigDog1.greeting(bigDog2);
-    }
+        boolean flag = true;
+Dog dog2 = null;
+if (animal2 instanceof Dog) {
+    dog2 = (Dog)animal2;
+} else {
+    flag = false;
+}
+BigDog bigDog2 = null;
+Dog dog3 = null;
+if (animal3 instanceof BigDog) {
+    bigDog2 = (BigDog)animal3;
+    // because Big instanceof Dog
+    dog3 = (Dog)animal3;
+} else {
+    flag = false;
+}
+// Cat cat2 = (Cat)animal2;        // Error!!! Dog cannot be cast to Cat !
+if (flag) {
+    dog2.greeting(dog3);
+    dog3.greeting(dog2);
+    dog2.greeting(bigDog2);
+    bigDog2.greeting(dog2);
+    bigDog2.greeting(bigDog1);
+    bigDog1.greeting(bigDog2);
+}
 }
