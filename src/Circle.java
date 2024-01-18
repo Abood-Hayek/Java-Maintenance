@@ -40,6 +40,9 @@ public class Circle extends Shape {
 
     // A public method for retrieving the radius
     public double getRadius() {
+        if (this.radius < 0) {
+        throw new RuntimeException("The radius cannot be less than 0, you can't get it");
+    } // add exception handling
         return radius; 
     }
 
