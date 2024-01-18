@@ -11,47 +11,22 @@ package src;
  * The source codes for Circle is as follows:
  */
 
-public class Book3 {
-   
-   private String    name;
-   private double    price;
+public class Book3 extends BookBase{
+
    private Author[]  authors = new Author[5];
    private int       numAuthors = 0;
-   private int       qtyInStock = 0;
 
    public Book3(String name, double price) {
-      this.name    = name;
-      this.price   = price;
+      super(name, price);
    }
 
    public Book3(String name, double price, int qtyInStock) {
-      this.name       = name;
-      this.price      = price;
-      this.qtyInStock = qtyInStock;
+      super(name, price, qtyInStock);
    }
 
-   public String getName() {
-      return this.name;
-   }
-
-   public double getPrice() {
-      return this.price;
-   }
 
    public Author[] getAuthors() {
       return this.authors;
-   }
-
-   public void setPrice(double price) {
-      this.price = price;
-   }
-
-   public int getQtyInStock() {
-      return this.qtyInStock;
-   }
-
-   public void setQtyInStock(int qtyInStock) {
-      this.qtyInStock = qtyInStock;
    }
 
    public void printAuthors() {
@@ -65,31 +40,31 @@ public class Book3 {
    }
 
    public void addAuthor(Author author)
-{
-   for (int i = 0; i < authors.length; i++)
    {
-      if (authors[i] == null) {
-         authors[i] = author;
-         ++numAuthors;
-         break;
+      for (int i = 0; i < authors.length; i++)
+      {
+         if (authors[i] == null) {
+            authors[i] = author;
+            ++numAuthors;
+            break;
+         }
       }
    }
-}
 
    public boolean removeAuthorByName(String authorName)
-{
-   for (int i = 0; i < authors.length; i++)
    {
-      if (authors[i] != null && authorName.equalsIgnoreCase(authors[i].getName()) ) {
-         authors[i] = null;
-         --numAuthors;
-         return true;
+      for (int i = 0; i < authors.length; i++)
+      {
+         if (authors[i] != null && authorName.equalsIgnoreCase(authors[i].getName()) ) {
+            authors[i] = null;
+            --numAuthors;
+            return true;
+         }
       }
+      return false;
    }
-   return false;
-}
 
    public String toString() {
-      return "'" + name +"' by " + numAuthors + " authors";
+      return "'" + this.getName() +"' by " + numAuthors + " authors";
    }   
 }

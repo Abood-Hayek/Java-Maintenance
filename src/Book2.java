@@ -11,48 +11,22 @@ package src;
  * The source codes for Circle is as follows:
  */
 
-public class Book2 {
-   
-   private String   name;
-   private double   price;
+public class Book2 extends BookBase{
+
    private Author[] authors;
-   private int      qtyInStock = 0;
 
    public Book2(String name, Author[] authors, double price) {
-      this.name    = name;
+      super(name,price);
       this.authors = authors;
-      this.price   = price;
    }
 
    public Book2(String name, Author[] authors, double price, int qtyInStock) {
-      this.name       = name;
+      super(name, price, qtyInStock);
       this.authors    = authors;
-      this.price      = price;
-      this.qtyInStock = qtyInStock;
-   }
-
-   public String getName() {
-      return this.name;
-   }
-
-   public double getPrice() {
-      return this.price;
    }
 
    public Author[] getAuthors() {
       return this.authors;
-   }
-
-   public void setPrice(double price) {
-      this.price = price;
-   }
-
-   public int getQtyInStock() {
-      return this.qtyInStock;
-   }
-
-   public void setQtyInStock(int qtyInStock) {
-      this.qtyInStock = qtyInStock;
    }
 
    public void printAuthors() {
@@ -63,6 +37,6 @@ public class Book2 {
    }
 
    public String toString() {
-      return "'" + name +"' by " + authors.length + " authors";
+      return "'" + this.getName() +"' by " + authors.length + " authors";
    }   
 }
