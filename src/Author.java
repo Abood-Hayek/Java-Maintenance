@@ -1,7 +1,14 @@
 package src;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Author {
    
+private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+// just one for save resource
+private static Pattern pattern = Pattern.compile(EMAIL_REGEX)
+
     private String name;
     private String email;
     private char   gender;
@@ -21,7 +28,12 @@ public class Author {
     }
 
     public void setEmail(String setEmail) {
+        Matcher matcher = pattern.matcher(setEmail);
+    if (matcher.matches()) {
         this.email = setEmail;
+         } else {
+        System.out.println("Does not conform to the basic email format");
+    }
     } 
 
     public char getGender() {
